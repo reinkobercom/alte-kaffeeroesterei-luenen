@@ -317,7 +317,9 @@ const s = sections.startseite;
     gap: 0.75rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding-bottom: 0.5rem;
+    /* gleicher linker Abstand wie die übrigen Sektionen, auch beim Einrasten */
+    scroll-padding-inline: var(--gutter);
+    padding: 0 var(--gutter) 0.5rem;
   }
   .shorts li {
     scroll-snap-align: start;
