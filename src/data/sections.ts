@@ -17,7 +17,7 @@ export const sections = {
   startseite: {
     fruehstuecksbuffet: true, // „Frühstücksgenuss am Wochenende …“
     reservierungsbedingungen: true,
-    reservierungen: true, // „Reservierungen … Eure Andrea“
+    reservierungen: true, // „Reservierungen … Ihre Andrea“
     reinkommen: true, // „Reinkommen, wohlfühlen & genießen.“
     zwischentitel: true, // „Frühstück, Kaffee & Kuchen.“
     regional: true, // „Regional, nachhaltig & fair.“

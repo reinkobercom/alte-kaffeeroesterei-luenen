@@ -76,7 +76,7 @@ export const announcements: Announcement[] = [
     tone: 'roast',
     title: 'Sonntag, 04.10.2026 +++ geschlossene Gesellschaft',
     paragraphs: [
-      'Am Sonntag den 04.10.2026 haben wir bei uns eine geschlossene Gesellschaft. Vielen Dank für euer Verständnis.',
+      'Am Sonntag den 04.10.2026 haben wir bei uns eine geschlossene Gesellschaft. Vielen Dank für Ihr Verständnis.',
     ],
   },
   {
@@ -86,9 +86,9 @@ export const announcements: Announcement[] = [
     tone: 'espresso',
     title: 'Öffnungszeiten zu den Feiertagen & Jahreswechsel',
     paragraphs: [
-      'Liebe Gäste, wir möchten euch über unsere Öffnungszeiten rund um die Feiertage informieren:',
-      '<b>Wichtiger Hinweis vorab: Unsere generellen Öffnungszeiten gehen ab sofort bis 17:30 Uhr.</b><br><br><b>Unsere Feiertags-Planung:</b><br>Montag, den 22.12. bis Freitag, den 26.12.: Geschlossen<br><b>Samstag, den 27.12. &amp; Sonntag, den 28.12.: Unser beliebtes Wochenend-Frühstücksbuffet von 09:30 – 13:00 Uhr</b><br>Montag, den 29.12. &amp; Dienstag, den 30.12.: Geschlossen<br><b>Mittwoch, den 31.12. (Silvester): Silvester-Frühstücksbuffet von 09:30 – 13:00 Uhr</b><br>Donnerstag, den 01.01. bis einschließlich Dienstag, den 06.01.2026: Geschlossen<br><br><b>Ab Mittwoch, dem 07.01.2026, sind wir wieder wie gewohnt für euch da.</b>',
-      'Wir freuen uns auf euren Besuch und wünschen frohe Festtage und einen guten Rutsch ins neue Jahr!',
+      'Liebe Gäste, wir möchten Sie über unsere Öffnungszeiten rund um die Feiertage informieren:',
+      '<b>Wichtiger Hinweis vorab: Unsere generellen Öffnungszeiten gehen ab sofort bis 17:30 Uhr.</b><br><br><b>Unsere Feiertags-Planung:</b><br>Montag, den 22.12. bis Freitag, den 26.12.: Geschlossen<br><b>Samstag, den 27.12. &amp; Sonntag, den 28.12.: Unser beliebtes Wochenend-Frühstücksbuffet von 09:30 – 13:00 Uhr</b><br>Montag, den 29.12. &amp; Dienstag, den 30.12.: Geschlossen<br><b>Mittwoch, den 31.12. (Silvester): Silvester-Frühstücksbuffet von 09:30 – 13:00 Uhr</b><br>Donnerstag, den 01.01. bis einschließlich Dienstag, den 06.01.2026: Geschlossen<br><br><b>Ab Mittwoch, dem 07.01.2026, sind wir wieder wie gewohnt für Sie da.</b>',
+      'Wir freuen uns auf Ihren Besuch und wünschen frohe Festtage und einen guten Rutsch ins neue Jahr!',
     ],
   },
   {
@@ -98,8 +98,8 @@ export const announcements: Announcement[] = [
     tone: 'oat',
     title: 'Aushilfe (m/w/d) gesucht',
     paragraphs: [
-      'Wir suchen ab sofort eine motivierte Aushilfe (m/w/d) zur Verstärkung unseres Teams im Vormittagsbereich. Bei der Alten Kaffeerösterei Lünen erwartet dich ein freundliches, dynamisches Arbeitsumfeld, perfekt für Studenten oder als Nebenjob. Deine Aufgaben sind die Zubereitung und das Servieren unseres Frühstücks, die Betreuung der Gäste und die Aufrechterhaltung der Ordnung im Café. Wir suchen jemanden mit Begeisterung für Kaffee und Gastronomie, freundlichem Auftreten sowie Zuverlässigkeit und Teamfähigkeit. Fühlst du dich vom Duft frischen Kaffees angezogen? Dann sende eine kurze Mail an <a href="mailto:info@alte-kaffee-roesterei.de">info@alte-kaffee-roesterei.de</a> oder ruf uns an: <a href="tel:+4923067811910">+49 2306 7811910</a>',
-      'Wir freuen uns darauf, dich kennenzulernen!',
+      'Wir suchen ab sofort eine motivierte Aushilfe (m/w/d) zur Verstärkung unseres Teams im Vormittagsbereich. Bei der Alten Kaffeerösterei Lünen erwartet Sie ein freundliches, dynamisches Arbeitsumfeld, perfekt für Studenten oder als Nebenjob. Ihre Aufgaben sind die Zubereitung und das Servieren unseres Frühstücks, die Betreuung der Gäste und die Aufrechterhaltung der Ordnung im Café. Wir suchen jemanden mit Begeisterung für Kaffee und Gastronomie, freundlichem Auftreten sowie Zuverlässigkeit und Teamfähigkeit. Fühlen Sie sich vom Duft frischen Kaffees angezogen? Dann senden Sie eine kurze Mail an <a href="mailto:info@alte-kaffee-roesterei.de">info@alte-kaffee-roesterei.de</a> oder rufen Sie uns an: <a href="tel:+4923067811910">+49 2306 7811910</a>',
+      'Wir freuen uns darauf, Sie kennenzulernen!',
     ],
   },
   {
