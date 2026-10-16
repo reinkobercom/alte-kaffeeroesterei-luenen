@@ -5,7 +5,10 @@ import MenuCta from './MenuCta.astro';
 import OpeningHours from './OpeningHours.astro';
 import TextMedia from './TextMedia.astro';
 import { img } from '../data/images';
+import { sections } from '../data/sections';
 import Base from '../layouts/Base.astro';
+
+const s = sections.fruehstueckOrt;
 
 interface Props {
   city: string;
@@ -27,14 +30,26 @@ const { city } = Astro.props;
     size="large"
   />
 
-  <TextMedia title="Ihr Morgen, Ihr Lieblingsfrühstück." images={img.fruehstueck}>
-    <p>
-      Sie lieben es, morgens in Ruhe zu frühstücken und gemeinsam mit Ihren Liebsten den Start in den Tag zu genießen?
-      Dann sind Sie bei uns genau richtig. Wir bieten Ihnen ein reichhaltiges Frühstück nach Ihrem Geschmack.
-    </p>
-  </TextMedia>
+  {
+    s.lieblingsfruehstueck && (
+    <TextMedia title="Ihr Morgen, Ihr Lieblingsfrühstück." images={img.fruehstueck}>
+      <p>
+        Sie lieben es, morgens in Ruhe zu frühstücken und gemeinsam mit Ihren Liebsten den Start in den Tag zu genießen?
+        Dann sind Sie bei uns genau richtig. Wir bieten Ihnen ein reichhaltiges Frühstück nach Ihrem Geschmack.
+      </p>
+    </TextMedia>
+    )
+  }
 
-  <MenuCta />
+  {
+    s.speisekarte && (
+    <MenuCta />
+    )
+  }
 
-  <OpeningHours />
+  {
+    s.oeffnungszeiten && (
+    <OpeningHours />
+    )
+  }
 </Base>

@@ -12,6 +12,7 @@ import Analytics from '@vercel/analytics/astro';
 import ActionBar from '../components/ActionBar.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import { sections } from '../data/sections';
 import { openingHours, site } from '../data/site';
 
 interface Props {
@@ -90,7 +91,7 @@ const jsonLd = {
       <slot />
     </main>
     <Footer />
-    {actionBar && <ActionBar />}
+    {actionBar && sections.global.mobileAktionsleiste && <ActionBar />}
     <Analytics />
   </body>
 </html>

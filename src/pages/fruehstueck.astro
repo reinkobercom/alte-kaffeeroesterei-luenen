@@ -5,7 +5,10 @@ import OpeningHours from '../components/OpeningHours.astro';
 import Split from '../components/Split.astro';
 import TextMedia from '../components/TextMedia.astro';
 import { img } from '../data/images';
+import { sections } from '../data/sections';
 import Base from '../layouts/Base.astro';
+
+const s = sections.fruehstueck;
 ---
 
 <Base
@@ -14,24 +17,40 @@ import Base from '../layouts/Base.astro';
 >
   <Hero title="Frühstück" subtitle="Ihr perfekter Start in den Tag" />
 
-  <TextMedia title="Ihr Morgen, Ihr Lieblingsfrühstück." images={img.fruehstueck}>
-    <p>
-      Sie lieben es, morgens in Ruhe zu frühstücken und gemeinsam mit Ihren Liebsten den Start in den Tag zu genießen?
-      Dann sind Sie bei uns genau richtig. Wir bieten Ihnen ein reichhaltiges Frühstück nach Ihrem Geschmack.
-    </p>
-  </TextMedia>
+  {
+    s.lieblingsfruehstueck && (
+    <TextMedia title="Ihr Morgen, Ihr Lieblingsfrühstück." images={img.fruehstueck}>
+      <p>
+        Sie lieben es, morgens in Ruhe zu frühstücken und gemeinsam mit Ihren Liebsten den Start in den Tag zu genießen?
+        Dann sind Sie bei uns genau richtig. Wir bieten Ihnen ein reichhaltiges Frühstück nach Ihrem Geschmack.
+      </p>
+    </TextMedia>
+    )
+  }
 
-  <Split title="Aktuelles Frühstücksangebot" background="oat">
-    <p class="season">Sommer 2023</p>
-    <p>
-      Ab dem 01.05.23 bis zum 30.09.23 bieten wir unser Frühstück à la carte an. Wir erweitern hierfür unsere Karte um
-      weitere, herzhafte und süße Frühstücksgerichte, sodass für jeden etwas dabei ist.
-    </p>
-  </Split>
+  {
+    s.aktuellesAngebot && (
+    <Split title="Aktuelles Frühstücksangebot" background="oat">
+      <p class="season">Sommer 2023</p>
+      <p>
+        Ab dem 01.05.23 bis zum 30.09.23 bieten wir unser Frühstück à la carte an. Wir erweitern hierfür unsere Karte um
+        weitere, herzhafte und süße Frühstücksgerichte, sodass für jeden etwas dabei ist.
+      </p>
+    </Split>
+    )
+  }
 
-  <MenuCta />
+  {
+    s.speisekarte && (
+    <MenuCta />
+    )
+  }
 
-  <OpeningHours />
+  {
+    s.oeffnungszeiten && (
+    <OpeningHours />
+    )
+  }
 </Base>
 
 <style>

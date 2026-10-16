@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/images/logo.png';
+import { sections } from '../data/sections';
 import { mainNav, site } from '../data/site';
 import Icon from './Icon.astro';
 
@@ -38,10 +39,14 @@ const isActive = (href: string) => (href === '/' ? current === '/' : current.sta
             ))
           }
         </ul>
-        <a class="btn btn--primary site-nav__call" href={site.phone.href}>
-          <Icon name="phone" />
-          {site.phone.display}
-        </a>
+        {
+          sections.global.telefonImHeader && (
+            <a class="btn btn--primary site-nav__call" href={site.phone.href}>
+              <Icon name="phone" />
+              {site.phone.display}
+            </a>
+          )
+        }
       </div>
     </nav>
   </div>

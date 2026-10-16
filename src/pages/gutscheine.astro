@@ -2,7 +2,10 @@
 import Hero from '../components/Hero.astro';
 import TextMedia from '../components/TextMedia.astro';
 import { img } from '../data/images';
+import { sections } from '../data/sections';
 import Base from '../layouts/Base.astro';
+
+const s = sections.gutscheine;
 ---
 
 <Base
@@ -16,11 +19,15 @@ import Base from '../layouts/Base.astro';
     imageAlt={img.gutscheineHero.alt}
   />
 
-  <TextMedia title="Das perfekte Geschenk: Zeit!" images={[img.gutscheinkarten]}>
-    <p>
-      Verschenken Sie einen schicken Gutschein der Kaffeerösterei Lünen. Egal ob Muttertag, Geburtstag oder ein anderer
-      Tag, an dem eine besondere Person oder ein besonderes Ereignis gefeiert wird. Sie erhalten den Gutschein bei uns
-      im Laden.
-    </p>
-  </TextMedia>
+  {
+    s.geschenk && (
+    <TextMedia title="Das perfekte Geschenk: Zeit!" images={[img.gutscheinkarten]}>
+      <p>
+        Verschenken Sie einen schicken Gutschein der Kaffeerösterei Lünen. Egal ob Muttertag, Geburtstag oder ein anderer
+        Tag, an dem eine besondere Person oder ein besonderes Ereignis gefeiert wird. Sie erhalten den Gutschein bei uns
+        im Laden.
+      </p>
+    </TextMedia>
+    )
+  }
 </Base>

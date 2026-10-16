@@ -1,6 +1,9 @@
 ---
 import Hero from '../components/Hero.astro';
+import { sections } from '../data/sections';
 import Base from '../layouts/Base.astro';
+
+const s = sections.ueberUns;
 
 const historie = [
   {
@@ -33,21 +36,25 @@ const historie = [
 >
   <Hero title="Über uns" subtitle="Lernen Sie uns kennen" />
 
-  <section class="section history" aria-labelledby="history-title">
-    <div class="wrap history__grid">
-      <h2 id="history-title">Historie</h2>
-      <ol class="history__list">
-        {
-          historie.map((h) => (
-            <li>
-              <p class="history__year">{h.jahr}</p>
-              <p>{h.text}</p>
-            </li>
-          ))
-        }
-      </ol>
-    </div>
-  </section>
+  {
+    s.historie && (
+    <section class="section history" aria-labelledby="history-title">
+      <div class="wrap history__grid">
+        <h2 id="history-title">Historie</h2>
+        <ol class="history__list">
+          {
+            historie.map((h) => (
+              <li>
+                <p class="history__year">{h.jahr}</p>
+                <p>{h.text}</p>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+    </section>
+    )
+  }
 </Base>
 
 <style>

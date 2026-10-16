@@ -25,11 +25,18 @@ Alle URLs sind identisch zur bisherigen Onepage-Seite, daher sind keine Weiterle
 | --- | --- |
 | Telefon, Adresse, E-Mail, Social-Links, Menü | `src/data/site.ts` |
 | Öffnungszeiten (alle Anzeigen + Google-Daten) | `src/data/site.ts` → `openingHours` |
+| **Sektionen ein-/ausblenden** | `src/data/sections.ts` (`true` = sichtbar, `false` = ausgeblendet) |
 | **Ankündigungen** (Events, Feiertage, Jobs) | `src/data/announcements.ts` |
 | Speisekarte | Datei `public/speisekarte.pdf` ersetzen (Name beibehalten) |
 | Bilder | `src/assets/images/`, Alt-Texte in `src/data/images.ts` |
 | Impressum / Datenschutz | `src/content/legal/impressum.md`, `datenschutz.md` |
 | Farben, Schriften | `src/styles/global.css` |
+
+### Sektion ein- oder ausblenden
+
+In `src/data/sections.ts` steht für jede Seite jede Sektion mit einem Schalter. `false` blendet sie aus, `true`
+zeigt sie an. Wie bei Onepage ausgeblendet übernommen: „Lachs-Special“ und „Abkühlung gefällig?“ (Startseite),
+„Abkühlung gefällig?“ (Café) und „Aktuelles Frühstücksangebot – Sommer 2023“ (Frühstück).
 
 ### Ankündigung einblenden
 
@@ -92,4 +99,3 @@ npm run preview  # Build lokal ansehen
 - [ ] Impressum und Datenschutzerklärung aktualisieren (Texte sind 1:1 aus Onepage übernommen und veraltet:
       u. a. RStV/TMG, Facebook, Google Analytics, Newsletter; es fehlen Vercel, Vercel Analytics, Trustindex,
       YouTube, OpenStreetMap)
-- [ ] Inhalt „Aktuelles Frühstücksangebot – Sommer 2023“ auf `/fruehstueck` prüfen (1:1 übernommen)

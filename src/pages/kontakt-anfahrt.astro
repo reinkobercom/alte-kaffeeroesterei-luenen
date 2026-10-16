@@ -5,7 +5,10 @@ import Icon from '../components/Icon.astro';
 import OsmMap from '../components/OsmMap.astro';
 import { img } from '../data/images';
 import { site } from '../data/site';
+import { sections } from '../data/sections';
 import Base from '../layouts/Base.astro';
+
+const s = sections.kontaktAnfahrt;
 ---
 
 <Base
@@ -14,50 +17,58 @@ import Base from '../layouts/Base.astro';
 >
   <Hero title="Kontakt & Anfahrt" subtitle="Wir freuen uns auf Sie" />
 
-  <section class="section contact" aria-label="Kontaktinformationen">
-    <div class="wrap contact__grid">
-      <div class="contact__item">
-        <Icon name="phone" />
-        <h2>Telefon</h2>
-        <p>Fragen? Rufen Sie kurz durch:</p>
-        <p><a class="contact__big" href={site.phone.href}>{site.phone.display}</a></p>
-      </div>
-      <div class="contact__item">
-        <Icon name="clock" />
-        <h2>Öffnungszeiten</h2>
-        <p><b>Mittwoch – Freitag</b><br />09:00 bis 17:30 Uhr</p>
-        <p><b>Samstag &amp; Sonntag</b><br />09:30 – 17:30 Uhr</p>
-      </div>
-      <div class="contact__item">
-        <Icon name="pin" />
-        <h2>Anfahrt</h2>
-        <p>
-          <span class="contact__big">{site.address.street}<br />{site.address.zip} {site.address.city}</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--oat location" aria-labelledby="location-title">
-    <div class="wrap location__grid">
-      <div class="location__card">
-        <Image
-          src={img.gastraeumeAnfahrt.src}
-          alt={img.gastraeumeAnfahrt.alt}
-          widths={[640, 960, 1400]}
-          sizes="(min-width: 56em) 45vw, 100vw"
-        />
-        <div class="location__body">
-          <h2 id="location-title">Im Herzen von Lünen.</h2>
-          <a class="btn btn--primary" href={site.phone.href}>
-            <Icon name="phone" />
-            Tisch telefonisch reservieren
-          </a>
+  {
+    s.kontaktinfos && (
+    <section class="section contact" aria-label="Kontaktinformationen">
+      <div class="wrap contact__grid">
+        <div class="contact__item">
+          <Icon name="phone" />
+          <h2>Telefon</h2>
+          <p>Fragen? Rufen Sie kurz durch:</p>
+          <p><a class="contact__big" href={site.phone.href}>{site.phone.display}</a></p>
+        </div>
+        <div class="contact__item">
+          <Icon name="clock" />
+          <h2>Öffnungszeiten</h2>
+          <p><b>Mittwoch – Freitag</b><br />09:00 bis 17:30 Uhr</p>
+          <p><b>Samstag &amp; Sonntag</b><br />09:30 – 17:30 Uhr</p>
+        </div>
+        <div class="contact__item">
+          <Icon name="pin" />
+          <h2>Anfahrt</h2>
+          <p>
+            <span class="contact__big">{site.address.street}<br />{site.address.zip} {site.address.city}</span>
+          </p>
         </div>
       </div>
-      <OsmMap />
-    </div>
-  </section>
+    </section>
+    )
+  }
+
+  {
+    s.lage && (
+    <section class="section section--oat location" aria-labelledby="location-title">
+      <div class="wrap location__grid">
+        <div class="location__card">
+          <Image
+            src={img.gastraeumeAnfahrt.src}
+            alt={img.gastraeumeAnfahrt.alt}
+            widths={[640, 960, 1400]}
+            sizes="(min-width: 56em) 45vw, 100vw"
+          />
+          <div class="location__body">
+            <h2 id="location-title">Im Herzen von Lünen.</h2>
+            <a class="btn btn--primary" href={site.phone.href}>
+              <Icon name="phone" />
+              Tisch telefonisch reservieren
+            </a>
+          </div>
+        </div>
+        <OsmMap />
+      </div>
+    </section>
+    )
+  }
 </Base>
 
 <style>
