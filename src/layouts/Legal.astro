@@ -1,0 +1,54 @@
+---
+import Base from './Base.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+---
+
+<Base title={title} description={description} actionBar={false}>
+  <article class="legal">
+    <div class="wrap legal__inner">
+      <h1>{title}</h1>
+      <div class="legal__body">
+        <slot />
+      </div>
+      <p class="legal__back"><a class="btn btn--outline" href="/">Zurück zur Startseite</a></p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .legal {
+    padding-block: var(--space-5);
+  }
+  .legal__inner {
+    max-width: calc(46rem + 2 * var(--gutter));
+  }
+  .legal__body :global(h2) {
+    font-size: var(--fs-h3);
+    margin-top: var(--space-4);
+  }
+  .legal__body :global(h3) {
+    font-family: var(--f-text);
+    font-weight: 600;
+    font-size: 1.0625rem;
+    color: var(--c-ink);
+    margin-top: var(--space-3);
+    margin-bottom: var(--space-1);
+  }
+  .legal__body :global(p),
+  .legal__body :global(li) {
+    font-size: 1rem;
+    overflow-wrap: anywhere;
+  }
+  .legal__body :global(ul) {
+    margin: 0 0 var(--space-2);
+    padding-left: 1.25rem;
+  }
+  .legal__back {
+    margin-top: var(--space-4);
+  }
+</style>

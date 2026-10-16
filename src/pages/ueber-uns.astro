@@ -1,0 +1,99 @@
+---
+import Hero from '../components/Hero.astro';
+import Base from '../layouts/Base.astro';
+
+const historie = [
+  {
+    jahr: '1924',
+    text: 'Der Kaufmann Ignaz Woestmann errichtete im Jahr 1924 die Kaffee-Groß-Rösterei VELUNA.',
+  },
+  { jahr: 'Bis 1932', text: 'Bis 1932 wurden Bohnenkaffee, Malz- und Kornkaffee hergestellt.' },
+  {
+    jahr: '2010',
+    text: '2010 erwarben die Eheleute Ahlert den vom Zerfall bedrohten Gebäudekomplex und unterzogen ihn einer sensiblen Renovierung. Nach der Sanierung zog die Cafébar & Bistro als zentraler Treffpunkt ein.',
+  },
+  {
+    jahr: 'Seit 2011',
+    text: 'Seit 2011 sorgten neben dem Café KB, die Künstler Andreas Becker und Horst Engel, die Fotografin Gabi Protze, Heike Grenigloh mit Dekorationen, die Wandkings mit Wandtattoos und Stickern, Architekten, eine Kleintierpraxis sowie ein Literatursalon und die Yogalehrerin Susann Napierala dafür, dass die Alte Kaffeerösterei aus ihrem Dornröschenschlaf erwacht.',
+  },
+  {
+    jahr: '2013',
+    text: 'Seit Oktober 2013 führt Heike Grenigloh nun das Café. Es heißt nicht mehr Café KB, sondern ist zum alten Namen „Alte Kaffeerösterei“ zurückgekehrt.',
+  },
+  {
+    jahr: '2023',
+    text: 'Nach einem Jahrzehnt unter der Leitung von Heike Grenigloh übernimmt nun Andrea Tomaszik das Café.',
+  },
+];
+---
+
+<Base
+  title="Über uns"
+  description="Die Geschichte der Alten Kaffeerösterei Lünen: 1924 errichtete Ignaz Woestmann die Kaffee-Groß-Rösterei VELUNA, seit 2023 führt Andrea Tomaszik das Café."
+>
+  <Hero title="Über uns" subtitle="Lernen Sie uns kennen" />
+
+  <section class="section history" aria-labelledby="history-title">
+    <div class="wrap history__grid">
+      <h2 id="history-title">Historie</h2>
+      <ol class="history__list">
+        {
+          historie.map((h) => (
+            <li>
+              <p class="history__year">{h.jahr}</p>
+              <p>{h.text}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .history__grid {
+    display: grid;
+    gap: var(--space-3) var(--space-5);
+  }
+  .history__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--c-oat);
+  }
+  .history__list li {
+    position: relative;
+    padding: 0 0 var(--space-4) var(--space-3);
+  }
+  .history__list li:last-child {
+    padding-bottom: 0;
+  }
+  .history__list li::before {
+    content: '';
+    position: absolute;
+    left: -0.5625rem;
+    top: 0.45rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: var(--c-white);
+    border: 3px solid var(--c-caramel);
+  }
+  .history__year {
+    font-family: var(--f-head);
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+    line-height: 1.2;
+    color: var(--c-roast);
+    margin-bottom: 0.4rem;
+  }
+  @media (min-width: 48em) {
+    .history__grid {
+      grid-template-columns: 0.6fr 1.4fr;
+    }
+    .history__grid > h2 {
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+      align-self: start;
+    }
+  }
+</style>

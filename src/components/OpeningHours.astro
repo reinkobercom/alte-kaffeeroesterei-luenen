@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import gastraum from '../assets/images/gastraum-panorama.jpg';
+import { openingHours } from '../data/site';
+
+const fmt = (t: string) => t;
+---
+
+<section class="section section--oat hours" aria-labelledby="hours-title">
+  <div class="wrap hours__grid">
+    <div class="hours__text">
+      <h2 id="hours-title">Öffnungszeiten</h2>
+      <table class="hours__table">
+        <caption class="visually-hidden">Reguläre Öffnungszeiten</caption>
+        <tbody>
+          {
+            openingHours.map((d) => (
+              <tr data-day={d.day}>
+                <th scope="row">{d.label}</th>
+                <td>{d.open && d.close ? `${fmt(d.open)} – ${fmt(d.close)}` : 'geschlossen'}</td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="hours__media">
+      <Image
+        src={gastraum}
+        alt="Blick in die Gasträume der Alten Kaffeerösterei mit eingedeckten Tischen"
+        widths={[640, 960, 1400]}
+        sizes="(min-width: 56em) 50vw, 100vw"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  // Heutigen Tag hervorheben (Zeitzone Lünen)
+  const name = new Intl.DateTimeFormat('en-US', { weekday: 'short', timeZone: 'Europe/Berlin' }).format(new Date());
+  const map: Record<string, number> = { Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7 };
+  document.querySelectorAll(`.hours__table tr[data-day="${map[name]}"]`).forEach((row) => {
+    row.classList.add('is-today');
+    row.querySelector('th')?.insertAdjacentHTML('beforeend', ' <span class="hours__today">heute</span>');
+  });
+</script>
+
+<style>
+  .hours__grid {
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+  }
+  .hours__table {
+    width: 100%;
+    max-width: 26rem;
+    border-collapse: collapse;
+    font-size: 1.0625rem;
+  }
+  .hours__table th,
+  .hours__table td {
+    padding: 0.7rem 0;
+    border-bottom: 1px solid var(--c-line);
+    text-align: left;
+    font-weight: 400;
+  }
+  .hours__table td {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .hours__table tr:last-child th,
+  .hours__table tr:last-child td {
+    border-bottom: 0;
+  }
+  .hours__table :global(tr.is-today) th,
+  .hours__table :global(tr.is-today) td {
+    font-weight: 600;
+    color: var(--c-roast);
+  }
+  .hours__table :global(.hours__today) {
+    display: inline-block;
+    margin-left: 0.4rem;
+    padding: 0.05rem 0.5rem;
+    border-radius: 999px;
+    background: var(--c-roast);
+    color: var(--c-white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    vertical-align: 0.1em;
+  }
+  .hours__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius);
+  }
+  @media (min-width: 56em) {
+    .hours__grid {
+      grid-template-columns: 1fr 1.15fr;
+      gap: var(--space-5);
+    }
+  }
+</style>

@@ -1,0 +1,34 @@
+---
+// „Unsere Speisekarte finden Sie hier.“ – wie auf den Frühstücksseiten
+import { site } from '../data/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section section--tight menu-cta">
+  <div class="wrap menu-cta__inner">
+    <h2>Unsere Speisekarte finden Sie hier.</h2>
+    <a class="btn btn--primary" href={site.menuPdf} target="_blank" rel="noopener">
+      <Icon name="menu-card" />
+      Speisekarte ansehen
+    </a>
+  </div>
+</section>
+
+<style>
+  .menu-cta {
+    padding-bottom: var(--space-5) !important;
+  }
+  .menu-cta__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--c-line);
+  }
+  .menu-cta h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.125rem);
+  }
+</style>

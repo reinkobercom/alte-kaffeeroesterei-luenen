@@ -1,0 +1,40 @@
+---
+// Lokale Landingpage „Frühstück in <Ort>“ (nicht im Menü verlinkt)
+import Hero from './Hero.astro';
+import MenuCta from './MenuCta.astro';
+import OpeningHours from './OpeningHours.astro';
+import TextMedia from './TextMedia.astro';
+import { img } from '../data/images';
+import Base from '../layouts/Base.astro';
+
+interface Props {
+  city: string;
+}
+const { city } = Astro.props;
+---
+
+<Base
+  title={`Frühstück in ${city}`}
+  description={`Frühstück in ${city} gesucht? In der Kaffeerösterei Lünen, nur einen Katzensprung von ${city} entfernt, beginnt Ihr perfekter Start in den Tag.`}
+  keywords="cafe lünen, kaffeerösterei lünen, alte kaffeerösterei lünen, frühstück dortmund, frühstück werne"
+>
+  <Hero
+    kicker={`Frühstück in ${city} gesucht?`}
+    title="Wie wäre es mit einem leckeren Frühstück in Lünen?"
+    subtitle="Ihr perfekter Start in den Tag"
+    text={`Beginnen Sie Ihren Tag in ${city} mit einem Frühstück, das genauso einzigartig ist wie unsere Stadt. In der Kaffeerösterei Lünen, nur einen Katzensprung von ${city} entfernt, verstehen wir, dass ein gutes Frühstück mehr als nur eine Mahlzeit ist – es ist ein Ritual, das den Ton für den ganzen Tag setzt.`}
+    ctas
+    size="large"
+  />
+
+  <TextMedia title="Ihr Morgen, Ihr Lieblingsfrühstück." images={img.fruehstueck}>
+    <p>
+      Sie lieben es, morgens in Ruhe zu frühstücken und gemeinsam mit Ihren Liebsten den Start in den Tag zu genießen?
+      Dann sind Sie bei uns genau richtig. Wir bieten Ihnen ein reichhaltiges Frühstück nach Ihrem Geschmack.
+    </p>
+  </TextMedia>
+
+  <MenuCta />
+
+  <OpeningHours />
+</Base>

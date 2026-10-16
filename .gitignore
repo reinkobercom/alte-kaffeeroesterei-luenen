@@ -1,0 +1,13 @@
+# Build-Ausgabe
+dist/
+.astro/
+.vercel/
+
+# Abhängigkeiten
+node_modules/
+
+# Logs & System
+npm-debug.log*
+.DS_Store
+.env
+.env.*

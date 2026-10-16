@@ -1,0 +1,102 @@
+---
+// Farbiges Info-Band (z. B. Frühstücksbuffet, Reservierungsbedingungen, Ankündigungen)
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Props {
+  tone: 'caramel' | 'sand' | 'roast' | 'espresso' | 'oat' | 'white';
+  title: string;
+  label?: string;
+  id?: string;
+  image?: { src: ImageMetadata; alt: string };
+  headingLevel?: 2 | 3;
+}
+const { tone, title, label, id, image, headingLevel = 2 } = Astro.props;
+const H = `h${headingLevel}` as 'h2' | 'h3';
+---
+
+<section class:list={['banner', `tone-${tone}`, image && 'banner--media']} id={id}>
+  <div class="wrap banner__inner">
+    {
+      image && (
+        <div class="banner__media">
+          <Image src={image.src} alt={image.alt} widths={[480, 800]} sizes="(min-width: 56em) 22rem, 90vw" />
+        </div>
+      )
+    }
+    <div class="banner__body">
+      {label && <p class="banner__label">{label}</p>}
+      <H class="banner__title">{title}</H>
+      <div class="banner__text">
+        <slot />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .banner {
+    background: var(--banner-bg);
+    color: var(--banner-fg);
+    padding-block: clamp(2.75rem, 2rem + 3vw, 4.75rem);
+  }
+  .banner.tone-white {
+    border-block: 1px solid var(--c-line);
+  }
+  .banner__inner {
+    display: grid;
+    gap: var(--space-3);
+  }
+  .banner__body {
+    max-width: 46rem;
+  }
+  .banner__title {
+    color: inherit;
+    font-size: clamp(1.5rem, 1.2rem + 1.4vw, 2.25rem);
+  }
+  .banner__label {
+    display: inline-block;
+    margin-bottom: var(--space-2);
+    padding: 0.25rem 0.85rem;
+    border-radius: 999px;
+    background: var(--c-oat);
+    color: var(--c-roast);
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+  .banner__text :global(p) {
+    max-width: 62ch;
+  }
+  .banner__text :global(a) {
+    color: inherit;
+    text-decoration: underline;
+  }
+  .banner__text :global(ul) {
+    margin: 0 0 var(--space-2);
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.35rem;
+    max-width: 26rem;
+  }
+  .banner__text :global(li) {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid color-mix(in srgb, currentColor 25%, transparent);
+    font-variant-numeric: tabular-nums;
+  }
+  .banner__media img {
+    width: 100%;
+    max-width: 22rem;
+    border-radius: var(--radius);
+  }
+  @media (min-width: 56em) {
+    .banner--media .banner__inner {
+      grid-template-columns: 22rem 1fr;
+      gap: var(--space-5);
+      align-items: center;
+    }
+  }
+</style>

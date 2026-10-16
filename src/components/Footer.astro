@@ -1,0 +1,197 @@
+---
+import { Image } from 'astro:assets';
+import logoHell from '../assets/images/logo-hell.png';
+import { footerNav, legalNav, site } from '../data/site';
+import Icon from './Icon.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap site-footer__grid">
+    <section class="site-footer__col" aria-labelledby="footer-contact">
+      <h2 id="footer-contact" class="site-footer__title">Kontaktdaten</h2>
+      <ul class="site-footer__contact">
+        <li>
+          <Icon name="phone" />
+          <div>
+            <a href={site.phone.href}>{site.phone.display}</a>
+            <span>Rufen Sie uns gerne an</span>
+          </div>
+        </li>
+        <li>
+          <Icon name="pin" />
+          <div>
+            <span class="site-footer__strong">{site.address.street}, {site.address.zip} {site.address.city}</span>
+            <span>Wir freuen uns auf Ihren Besuch</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <nav class="site-footer__col" aria-labelledby="footer-menu">
+      <h2 id="footer-menu" class="site-footer__title">Menü</h2>
+      <ul class="site-footer__links">
+        {
+          footerNav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="site-footer__col site-footer__brand">
+      <a href="/" class="site-footer__logo" aria-label={`${site.name} – Startseite`}>
+        <Image src={logoHell} alt="" widths={[208, 416]} sizes="13rem" />
+      </a>
+      <p>{site.footerText}</p>
+      <ul class="site-footer__social" aria-label="Soziale Medien">
+        <li>
+          <a href={site.social.instagram} target="_blank" rel="noopener" aria-label="Instagram (öffnet in neuem Tab)">
+            <Icon name="instagram" />
+          </a>
+        </li>
+        <li>
+          <a href={site.social.youtube} target="_blank" rel="noopener" aria-label="YouTube (öffnet in neuem Tab)">
+            <Icon name="youtube" />
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="wrap site-footer__bottom-inner">
+      <p>© {year} {site.name}</p>
+      <ul>
+        {
+          legalNav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--c-cocoa);
+    color: rgba(255, 255, 255, 0.82);
+    font-size: var(--fs-sm);
+  }
+  .site-footer a {
+    color: var(--c-white);
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    text-decoration: underline;
+    color: var(--c-white);
+  }
+  .site-footer__grid {
+    display: grid;
+    gap: var(--space-4);
+    padding-block: var(--space-5) var(--space-4);
+  }
+  .site-footer__title {
+    font-family: var(--f-text);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--c-sand);
+    margin-bottom: var(--space-2);
+  }
+  .site-footer__contact,
+  .site-footer__links,
+  .site-footer__social,
+  .site-footer__bottom ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .site-footer__contact {
+    display: grid;
+    gap: var(--space-2);
+  }
+  .site-footer__contact li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .site-footer__contact svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    flex: none;
+    margin-top: 0.15rem;
+    color: var(--c-sand);
+  }
+  .site-footer__contact div {
+    display: grid;
+  }
+  .site-footer__contact a,
+  .site-footer__strong {
+    font-size: 1.0625rem;
+    color: var(--c-white);
+  }
+  .site-footer__links {
+    display: grid;
+    gap: 0.15rem;
+  }
+  .site-footer__links a {
+    display: inline-block;
+    padding: 0.3rem 0;
+  }
+  .site-footer__logo {
+    display: block;
+    width: 13rem;
+    margin-bottom: var(--space-2);
+  }
+  .site-footer__brand p {
+    max-width: 34ch;
+  }
+  .site-footer__social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: var(--space-2);
+  }
+  .site-footer__social a {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    --icon-cut: var(--c-cocoa);
+  }
+  .site-footer__social a:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  .site-footer__social svg {
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+  .site-footer__bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+  .site-footer__bottom-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-block: var(--space-3);
+  }
+  .site-footer__bottom ul {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 48em) {
+    .site-footer__grid {
+      grid-template-columns: 1.2fr 0.8fr 1.2fr;
+    }
+  }
+</style>

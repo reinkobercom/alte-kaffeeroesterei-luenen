@@ -1,0 +1,19 @@
+---
+import { activeAnnouncements, type Announcement } from '../data/announcements';
+import Banner from './Banner.astro';
+
+interface Props {
+  position: Announcement['position'];
+}
+const items = activeAnnouncements(Astro.props.position);
+---
+
+{
+  items.map((a) => (
+    <Banner tone={a.tone} title={a.title} label={a.label} id={a.id} image={a.image}>
+      {a.paragraphs.map((p) => (
+        <p set:html={p} />
+      ))}
+    </Banner>
+  ))
+}

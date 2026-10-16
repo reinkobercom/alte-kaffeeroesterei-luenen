@@ -1,0 +1,268 @@
+---
+import Announcements from '../components/Announcements.astro';
+import Banner from '../components/Banner.astro';
+import Gallery from '../components/Gallery.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import OpeningHours from '../components/OpeningHours.astro';
+import Quote from '../components/Quote.astro';
+import Reviews from '../components/Reviews.astro';
+import Split from '../components/Split.astro';
+import TextMedia from '../components/TextMedia.astro';
+import YouTubeLite from '../components/YouTubeLite.astro';
+import { drinkImages, eisImages, img } from '../data/images';
+import { site } from '../data/site';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Alte Kaffeerösterei Lünen"
+  description="Willkommen in der Alten Kaffeerösterei – Ihrem Lieblingscafé in Lünen. Frühstücksbuffet am Wochenende, Kuchen & Torten mit viel Liebe gebacken, Eis und Getränke an unserer Bar."
+>
+  <Hero title="WILLKOMMEN IN DER ALTEN KAFFEERÖSTEREI" subtitle="Ihrem Lieblingscafé in Lünen" ctas size="large" />
+
+  <Announcements position="top" />
+
+  <Banner tone="caramel" title="Frühstücksgenuss am Wochenende – Regional, frisch & entspannt genießen">
+    <p>
+      Jeden Samstag und Sonntag von 09:30 bis 12:30 Uhr erwartet Sie ein reichhaltiges und frisches Frühstücksbuffet.
+      Freuen Sie sich auf hochwertige, regionale Produkte wie Fisch von Baumüller aus Wickede an der Ruhr,
+      Wurstaufschnitt von der Meisterfleischerei Bernemann &amp; Röhl aus Lünen, Eier vom Hof Lüning sowie Brot und
+      Brötchen von Bäckerei Wulf aus Lünen.
+    </p>
+    <p>
+      Inklusive sind außerdem Dallmayr Filterkaffee – so viel Sie möchten – sowie ein Glas Fruchtsaft und ein Glas
+      Prosecco zur Begrüßung. Das alles für nur 24,90 € pro Person.
+    </p>
+    <p><b>Preise für unsere kleinen Gäste:</b></p>
+    <ul>
+      <li><span>2 bis 6 Jahre</span><span>5,00 €</span></li>
+      <li><span>7 bis 10 Jahre</span><span>12,50 €</span></li>
+      <li><span>Ab 11 Jahren</span><span>24,90 € (regulärer Preis)</span></li>
+    </ul>
+  </Banner>
+
+  <Banner tone="espresso" title="Reservierungsbedingungen">
+    <p>
+      Um allen Gästen einen reibungslosen Ablauf und faire Platzvergabe zu ermöglichen, bitten wir um Verständnis für
+      folgende Regelung:
+    </p>
+    <p>
+      Reservierungen erfolgen für eine verbindliche Personenanzahl. Erscheinen weniger Personen als reserviert oder
+      bleiben reservierte Plätze ungenutzt, müssen wir pro nicht erschienener Person eine Gebühr von 12,50 € berechnen.
+    </p>
+    <p>
+      Eine kostenfreie Stornierung oder Anpassung der Personenanzahl ist bis spätestens 24 Stunden vor dem
+      Reservierungstermin möglich. Bei späteren Absagen oder Nichterscheinen wird die genannte Gebühr fällig.
+    </p>
+    <p>
+      Diese Regelung hilft uns, Leerplätze zu vermeiden und unseren Service für alle Gäste optimal zu gestalten.<br />
+      Vielen Dank für Ihr Verständnis.
+    </p>
+  </Banner>
+
+  <Announcements position="afterBooking" />
+
+  <section class="section section--tight booking">
+    <div class="wrap booking__inner">
+      <h2>Reservierungen</h2>
+      <p>
+        Jede Reservierung ist verbindlich. Sollte eine Änderung oder Stornierung notwendig sein, bitten wir euch, dies
+        mindestens 24 Stunden im Voraus mitzuteilen. Andernfalls sehen wir uns gezwungen, die ursprünglich reservierte
+        Personenanzahl abzurechnen. So geben Sie anderen die Chance, gemeinsam mit ihren Liebsten zu frühstücken oder
+        unseren Kaffee zu genießen. Vielen Dank für Ihr Verständnis und Ihre Fairness!
+      </p>
+      <p class="booking__sign">Vielen Dank<br />Eure Andrea</p>
+    </div>
+  </section>
+
+  <Split title="Reinkommen,<br>wohlfühlen &amp;<br>genießen." background="oat">
+    <p class="lead">
+      Bei uns erwarten Sie viele leckere Kuchen &amp; Torten aus hochwertigen Zutaten, mit viel Liebe gebacken. Gepaart
+      mit freundlichem Service erwartet Sie bei uns eine rundum schöne Zeit.
+    </p>
+    <p>Perfekt für einen schönen Nachmittag mit Freunden oder der Familie.</p>
+  </Split>
+
+  <section class="section section--tight intro">
+    <div class="wrap">
+      <h2 class="intro__title">Frühstück, Kaffee &amp; Kuchen.</h2>
+    </div>
+  </section>
+
+  <TextMedia title="Regional, nachhaltig &amp; fair." images={[img.cappuccinoHerz]} mediaFirst>
+    <p>
+      Wir produzieren alle unsere Produkte mit regionalen Zutaten. Des Weiteren legen wir viel Wert auf Nachhaltigkeit
+      und eine faire Produktion.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn--outline" href="/ueber-uns">Mehr über uns</a>
+    </div>
+  </TextMedia>
+
+  <TextMedia title="Ihr Wohlfühlort in Lünen." images={[img.tischTulpen]}>
+    <p>Bei uns sind Sie herzlich willkommen, um eine tolle Zeit mit Freunden oder der Familie zu verbringen.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href={site.menuPdf} target="_blank" rel="noopener">
+        <Icon name="menu-card" />
+        Entdecken Sie unsere Speisekarte
+      </a>
+    </div>
+  </TextMedia>
+
+  <Quote author="- Herzlichst, Andrea Tomaszik -" image={img.gastraumPanorama.src}>
+    <p>
+      „Andrea und Team heißen Sie in der Alten Kaffeerösterei herzlich willkommen. Schön, dass Sie den Weg zu uns
+      gefunden haben, wir überzeugen Sie mit Freundlichkeit, Qualität und Frische. Unsere Gäste stehen für uns im
+      Mittelpunkt, lassen Sie sich von unserem Angebot überraschen. Wir freuen uns, Sie mit leckerem Frühstück,
+      hausgemachten Torten und Kuchen und netten Kleinigkeiten zu verwöhnen.“
+    </p>
+  </Quote>
+
+  <section class="section gallery-section">
+    <div class="wrap">
+      <h2>Leckerer Kaffee &amp; Kuchen, entspannte Atmosphäre und nette Leute.</h2>
+    </div>
+    <Gallery images={img.homeGallery} label="Eindrücke aus der Alten Kaffeerösterei" />
+  </section>
+
+  <TextMedia title="Für alle Lachsliebhaber: Unser Freitags-Special" images={[img.reibekuchenLachs]} background="oat">
+    <p>
+      Ab dem 27.09.2024: Jeden Freitag ab 12 Uhr bieten wir euch unsere beliebten Reibekuchen mit frischem Lachs vom
+      Fischhof der Familie Baumüller an. 3 Reibekuchen mit jeweils Lachs belegt für 11,50 €.
+    </p>
+  </TextMedia>
+
+  <Split title="In schwierigen Zeiten sind wir für Sie da.">
+    <p>
+      Unser gemütliches Café öffnet montags und dienstags zwar nicht regulär, aber wir öffnen gerne unsere Türen für
+      Trauerfeiern und Gedenkmomente. Teilen Sie uns Ihre Bedürfnisse mit, damit wir gemeinsam eine warmherzige
+      Gedenkfeier gestalten können.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn--outline" href="/kontakt-anfahrt">Jetzt Kontakt aufnehmen</a>
+    </div>
+  </Split>
+
+  <TextMedia title="Das perfekte Geschenk: Zeit!" images={[img.gutscheinkarten]} mediaFirst background="oat">
+    <p>
+      Verschenken Sie einen schicken Gutschein der Kaffeerösterei Lünen. Egal ob Muttertag, Geburtstag oder ein anderer
+      Tag, an dem eine besondere Person oder ein besonderes Ereignis gefeiert wird. Sie erhalten den Gutschein bei uns
+      im Laden.
+    </p>
+  </TextMedia>
+
+  <section class="section gallery-section">
+    <div class="wrap">
+      <h2>Abkühlung gefällig?</h2>
+      <p class="gallery-section__text">
+        Ab sofort erwartet Sie in der alten Kaffeerösterei in Lünen auch eine große Auswahl an leckeren Eissorten.
+      </p>
+    </div>
+    <Gallery images={eisImages} label="Eis in der Alten Kaffeerösterei" />
+  </section>
+
+  <TextMedia title="Für alle, die den Kaffee schon auf haben!" images={drinkImages} background="oat">
+    <p>
+      Bei uns erwartet Sie, neben leckerem Kaffee und einer schmackhaften Kuchen- und Frühstücksauswahl, auch diverse
+      alkoholische und nicht alkoholische Getränke an unserer Bar.
+    </p>
+    <p>
+      Lust zum Beispiel auf einen Aperol Spritz oder ein kühles Blondes? Sprechen Sie uns bei Ihrem nächsten Besuch
+      einfach darauf an.
+    </p>
+  </TextMedia>
+
+  <section class="section youtube">
+    <div class="wrap youtube__grid">
+      <div>
+        <h2>Der YouTube-Kanal der alten Kaffeerösterei Lünen</h2>
+        <p>Bleiben Sie auf dem neuesten Stand und abonnieren Sie unseren YouTube-Kanal!</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href={site.social.youtube} target="_blank" rel="noopener">
+            <Icon name="youtube" />
+            Jetzt YouTube-Kanal abonnieren
+          </a>
+        </div>
+      </div>
+      <YouTubeLite id="aW95lIoWiTE" title="Willkommen in der alten Kaffeerösterei Lünen" poster={img.videoVorschau} />
+    </div>
+    <ul class="wrap shorts" aria-label="YouTube Shorts">
+      <li><YouTubeLite id="UtXt-DQpDD8" title="Frühstück in der alten Kaffeerösterei Lünen" poster={img.shorts[0]} ratio="9:16" /></li>
+      <li><YouTubeLite id="-cVnHq_XwrQ" title="Alte Kaffeerösterei Lünen" poster={img.shorts[1]} ratio="9:16" /></li>
+      <li><YouTubeLite id="OsVh_XbAW6w" title="Willkommen in der alten Kaffeerösterei Lünen" poster={img.shorts[2]} ratio="9:16" /></li>
+    </ul>
+  </section>
+
+  <Reviews />
+
+  <OpeningHours />
+</Base>
+
+<style>
+  .booking__inner {
+    max-width: calc(46rem + 2 * var(--gutter));
+  }
+  .booking__sign {
+    font-family: var(--f-head);
+    font-style: italic;
+    color: var(--c-roast);
+    margin-top: var(--space-3);
+  }
+  .intro {
+    text-align: center;
+  }
+  .intro__title {
+    margin: 0 auto;
+    padding-top: var(--space-3);
+    max-width: 20ch;
+    font-size: clamp(2rem, 1.4rem + 2.6vw, 3.5rem);
+  }
+  .intro__title::after {
+    content: '';
+    display: block;
+    width: 4rem;
+    height: 2px;
+    margin: var(--space-3) auto 0;
+    background: var(--c-caramel);
+  }
+  .gallery-section h2 {
+    max-width: 30ch;
+  }
+  .gallery-section__text {
+    margin-bottom: var(--space-3);
+  }
+  .gallery-section .wrap + :global(.gallery) {
+    margin-top: var(--space-3);
+  }
+  .youtube__grid {
+    display: grid;
+    gap: var(--space-4);
+    align-items: center;
+  }
+  .shorts {
+    list-style: none;
+    margin-top: var(--space-4);
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 72%;
+    gap: 0.75rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.5rem;
+  }
+  .shorts li {
+    scroll-snap-align: start;
+  }
+  @media (min-width: 48em) {
+    .youtube__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+    }
+    .shorts {
+      grid-auto-flow: row;
+      grid-template-columns: repeat(3, 1fr);
+      overflow: visible;
+    }
+  }
+</style>

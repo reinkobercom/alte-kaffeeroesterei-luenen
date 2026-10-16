@@ -1,0 +1,133 @@
+---
+import { Image } from 'astro:assets';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import OsmMap from '../components/OsmMap.astro';
+import { img } from '../data/images';
+import { site } from '../data/site';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Kontakt & Anfahrt"
+  description="Kontakt & Anfahrt: Alte Kaffeerösterei, Cappenberger Straße 51, 44534 Lünen. Telefon +49 2306 7811910. Mittwoch bis Freitag 09:00–17:30 Uhr, Samstag & Sonntag 09:30–17:30 Uhr."
+>
+  <Hero title="Kontakt & Anfahrt" subtitle="Wir freuen uns auf Sie" />
+
+  <section class="section contact" aria-label="Kontaktinformationen">
+    <div class="wrap contact__grid">
+      <div class="contact__item">
+        <Icon name="phone" />
+        <h2>Telefon</h2>
+        <p>Fragen? Rufen Sie kurz durch:</p>
+        <p><a class="contact__big" href={site.phone.href}>{site.phone.display}</a></p>
+      </div>
+      <div class="contact__item">
+        <Icon name="clock" />
+        <h2>Öffnungszeiten</h2>
+        <p><b>Mittwoch – Freitag</b><br />09:00 bis 17:30 Uhr</p>
+        <p><b>Samstag &amp; Sonntag</b><br />09:30 – 17:30 Uhr</p>
+      </div>
+      <div class="contact__item">
+        <Icon name="pin" />
+        <h2>Anfahrt</h2>
+        <p>
+          <span class="contact__big">{site.address.street}<br />{site.address.zip} {site.address.city}</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--oat location" aria-labelledby="location-title">
+    <div class="wrap location__grid">
+      <div class="location__card">
+        <Image
+          src={img.gastraeumeAnfahrt.src}
+          alt={img.gastraeumeAnfahrt.alt}
+          widths={[640, 960, 1400]}
+          sizes="(min-width: 56em) 45vw, 100vw"
+        />
+        <div class="location__body">
+          <h2 id="location-title">Im Herzen von Lünen.</h2>
+          <a class="btn btn--primary" href={site.phone.href}>
+            <Icon name="phone" />
+            Tisch telefonisch reservieren
+          </a>
+        </div>
+      </div>
+      <OsmMap />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact__grid {
+    display: grid;
+    gap: var(--space-3);
+  }
+  .contact__item {
+    padding: var(--space-3);
+    border: 1px solid var(--c-line);
+    border-radius: var(--radius);
+  }
+  .contact__item > :global(svg) {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--c-caramel-deep);
+    margin-bottom: var(--space-1);
+  }
+  .contact__item h2 {
+    font-size: var(--fs-h3);
+    margin-bottom: var(--space-1);
+  }
+  .contact__item p {
+    margin-bottom: var(--space-1);
+  }
+  .contact__big {
+    font-family: var(--f-head);
+    font-size: 1.25rem;
+    color: var(--c-roast);
+  }
+  a.contact__big {
+    text-decoration: none;
+  }
+  a.contact__big:hover {
+    text-decoration: underline;
+  }
+  .location__grid {
+    display: grid;
+    gap: var(--space-3);
+    align-items: stretch;
+  }
+  .location__card {
+    background: var(--c-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .location__card img {
+    width: 100%;
+    aspect-ratio: 16 / 7;
+    object-fit: cover;
+  }
+  .location__body {
+    padding: var(--space-3);
+  }
+  .location__body h2 {
+    margin-bottom: var(--space-3);
+  }
+  @media (min-width: 48em) {
+    .contact__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  @media (min-width: 56em) {
+    .location__grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-4);
+    }
+    .location__grid :global(.map) {
+      aspect-ratio: auto;
+      min-height: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+// Google-Bewertungen über Trustindex – Script 1:1 aus Onepage übernommen.
+// Das Widget wird von Trustindex an der Stelle des Scripts eingefügt.
+import { site } from '../data/site';
+---
+
+<section class="section reviews" aria-labelledby="reviews-title">
+  <div class="wrap">
+    <h2 id="reviews-title">Das sagen unsere Besucher über uns</h2>
+    <div class="reviews__widget">
+      <script is:inline defer async src={site.trustindexSrc}></script>
+    </div>
+  </div>
+</section>
+
+<style>
+  .reviews__widget {
+    margin-top: var(--space-3);
+    min-height: 12rem;
+  }
+</style>

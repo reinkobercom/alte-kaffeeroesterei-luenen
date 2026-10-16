@@ -1,0 +1,58 @@
+---
+import Gallery from '../components/Gallery.astro';
+import Hero from '../components/Hero.astro';
+import OpeningHours from '../components/OpeningHours.astro';
+import TextMedia from '../components/TextMedia.astro';
+import { drinkImages, eisImages, img } from '../data/images';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Café Lünen"
+  description="Kaffee & Kuchen versüßen Ihnen den Nachmittag: täglich wechselnde Kuchenauswahl, Kaffee aus der Siebträgermaschine, Eis und Getränke an unserer Bar in Lünen."
+>
+  <Hero title="Café" subtitle="Kaffee & Kuchen versüßen Ihnen den Nachmittag" />
+
+  <TextMedia title="Kaffeepause" images={img.cafeKaffeepause}>
+    <p>
+      Ob Sahnetorte oder Schokokuchen: Wir haben garantiert auch Ihren Lieblingskuchen bei uns in der täglich
+      wechselnden Kuchenauswahl. Dazu schmackhaften Kaffee aus unserer Siebträgermaschine.
+    </p>
+  </TextMedia>
+
+  <section class="section cafe-gallery" aria-label="Eindrücke aus dem Café">
+    <Gallery images={img.cafeGallery} label="Eindrücke aus dem Café" square />
+  </section>
+
+  <TextMedia title="Für alle, die den Kaffee schon auf haben!" images={drinkImages} background="oat">
+    <p>
+      Bei uns erwartet Sie, neben leckerem Kaffee und einer schmackhaften Kuchen- und Frühstücksauswahl, auch diverse
+      alkoholische und nicht alkoholische Getränke an unserer Bar.
+    </p>
+    <p>
+      Lust zum Beispiel auf einen Aperol Spritz oder ein kühles Blondes? Sprechen Sie uns bei Ihrem nächsten Besuch
+      einfach darauf an.
+    </p>
+  </TextMedia>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Abkühlung gefällig?</h2>
+      <p class="eis-text">
+        Ab sofort erwartet dich in der alten Kaffeerösterei in Lünen auch eine große Auswahl an leckeren Eissorten.
+      </p>
+    </div>
+    <Gallery images={eisImages} label="Eis in der Alten Kaffeerösterei" />
+  </section>
+
+  <OpeningHours />
+</Base>
+
+<style>
+  .cafe-gallery {
+    padding-top: 0;
+  }
+  .eis-text {
+    margin-bottom: var(--space-3);
+  }
+</style>

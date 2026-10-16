@@ -1,0 +1,25 @@
+---
+import Hero from '../components/Hero.astro';
+import Split from '../components/Split.astro';
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Beerdigungen Lünen"
+  description="Trauerfeiern in der Alten Kaffeerösterei Lünen: Montags und dienstags öffnen wir unsere Türen für Trauerfeiern und Gedenkmomente ab 20 Personen."
+>
+  <Hero title="Beerdigungen" subtitle="Ein Ort des Trostes und der Gemeinschaft" />
+
+  <Split title="In schwierigen Zeiten sind wir für Sie da.">
+    <p class="lead">
+      Unser gemütliches Café öffnet montags und dienstags zwar nicht regulär, doch für Trauerfeiern und Gedenkmomente ab
+      20 Personen öffnen wir unsere Türen mit Herz und Verständnis. In diesen besonderen Momenten möchten wir euch einen
+      warmherzigen und liebevollen Rahmen bieten. Damit alles reibungslos verläuft und wir euch bestmöglich begleiten
+      können, fällt eine Gebühr von 50 € für zusätzliches Personal an. Lasst uns wissen, was euch wichtig ist –
+      gemeinsam schaffen wir einen würdevollen Ort des Erinnerns.
+    </p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/kontakt-anfahrt">Jetzt Kontakt aufnehmen</a>
+    </div>
+  </Split>
+</Base>

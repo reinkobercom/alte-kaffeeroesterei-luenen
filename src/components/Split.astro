@@ -1,0 +1,37 @@
+---
+// Überschrift links, Text rechts (mobil untereinander)
+interface Props {
+  title: string;
+  background?: 'white' | 'oat';
+  id?: string;
+}
+const { title, background = 'white', id } = Astro.props;
+---
+
+<section class:list={['section', 'split', background === 'oat' && 'section--oat']} id={id}>
+  <div class="wrap split__grid">
+    <h2 set:html={title} />
+    <div class="split__body">
+      <slot />
+    </div>
+  </div>
+</section>
+
+<style>
+  .split__grid {
+    display: grid;
+    gap: var(--space-2) var(--space-5);
+  }
+  .split__body :global(.lead) {
+    margin-bottom: var(--space-2);
+  }
+  @media (min-width: 48em) {
+    .split__grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: start;
+    }
+    .split__grid > h2 {
+      margin-bottom: 0;
+    }
+  }
+</style>
