@@ -76,18 +76,18 @@ const s = sections.startseite;
 
   {
     s.reservierungen && (
-    <section class="section section--tight booking">
-      <div class="wrap booking__inner">
-        <h2>Reservierungen</h2>
-        <p>
-          Jede Reservierung ist verbindlich. Sollte eine Änderung oder Stornierung notwendig sein, bitten wir euch, dies
-          mindestens 24 Stunden im Voraus mitzuteilen. Andernfalls sehen wir uns gezwungen, die ursprünglich reservierte
-          Personenanzahl abzurechnen. So geben Sie anderen die Chance, gemeinsam mit ihren Liebsten zu frühstücken oder
-          unseren Kaffee zu genießen. Vielen Dank für Ihr Verständnis und Ihre Fairness!
-        </p>
-        <p class="booking__sign">Vielen Dank<br />Eure Andrea</p>
-      </div>
-    </section>
+    <Split title="Reservierungen">
+      <p class="lead">
+        Jede Reservierung ist verbindlich. Sollte eine Änderung oder Stornierung notwendig sein, bitten wir euch, dies
+        mindestens 24 Stunden im Voraus mitzuteilen. Andernfalls sehen wir uns gezwungen, die ursprünglich reservierte
+        Personenanzahl abzurechnen.
+      </p>
+      <p>
+        So geben Sie anderen die Chance, gemeinsam mit ihren Liebsten zu frühstücken oder unseren Kaffee zu genießen.
+        Vielen Dank für Ihr Verständnis und Ihre Fairness!
+      </p>
+      <p class="booking__sign">Vielen Dank<br />Eure Andrea</p>
+    </Split>
     )
   }
 
@@ -271,9 +271,6 @@ const s = sections.startseite;
 </Base>
 
 <style>
-  .booking__inner {
-    max-width: calc(46rem + 2 * var(--gutter));
-  }
   .booking__sign {
     font-family: var(--f-head);
     font-style: italic;
