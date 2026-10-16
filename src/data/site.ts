@@ -15,6 +15,10 @@ export const site = {
     country: 'DE',
   },
   geo: { lat: 51.6248165, lon: 7.5256657 },
+  // Link zur Adresse in Google Maps (Footer, Kontaktseite)
+  mapsUrl:
+    'https://www.google.com/maps/search/?api=1&query=' +
+    encodeURIComponent('Alte Kaffeerösterei, Cappenberger Straße 51, 44534 Lünen'),
   // Feste Adresse: neue Speisekarte einfach unter public/speisekarte.pdf ersetzen
   menuPdf: '/speisekarte.pdf',
   social: {

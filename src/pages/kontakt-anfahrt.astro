@@ -37,7 +37,9 @@ const s = sections.kontaktAnfahrt;
           <Icon name="pin" />
           <h2>Anfahrt</h2>
           <p>
-            <span class="contact__big">{site.address.street}<br />{site.address.zip} {site.address.city}</span>
+            <a class="contact__big" href={site.mapsUrl} target="_blank" rel="noopener">
+              {site.address.street}<br />{site.address.zip} {site.address.city}
+            </a>
           </p>
         </div>
       </div>
@@ -95,15 +97,19 @@ const s = sections.kontaktAnfahrt;
     margin-bottom: var(--space-1);
   }
   .contact__big {
-    font-family: var(--f-head);
-    font-size: 1.25rem;
+    font-family: var(--f-text);
+    font-size: 1.125rem;
+    font-weight: 500;
+    line-height: 1.5;
     color: var(--c-roast);
   }
   a.contact__big {
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: var(--c-sand);
+    text-underline-offset: 0.2em;
   }
   a.contact__big:hover {
-    text-decoration: underline;
+    text-decoration-color: currentColor;
   }
   .location__grid {
     display: grid;

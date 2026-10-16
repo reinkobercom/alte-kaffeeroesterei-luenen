@@ -22,7 +22,9 @@ const year = new Date().getFullYear();
         <li>
           <Icon name="pin" />
           <div>
-            <span class="site-footer__strong">{site.address.street}, {site.address.zip} {site.address.city}</span>
+            <a class="site-footer__strong" href={site.mapsUrl} target="_blank" rel="noopener">
+              {site.address.street}, {site.address.zip} {site.address.city}
+            </a>
             <span>Wir freuen uns auf Ihren Besuch</span>
           </div>
         </li>
