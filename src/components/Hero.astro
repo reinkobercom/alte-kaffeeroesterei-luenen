@@ -96,6 +96,19 @@ const {
   .hero__content {
     padding-block: var(--space-5) clamp(2.25rem, 1.5rem + 3vw, 4.5rem);
   }
+  /* Mobil: Text und Buttons sitzen höher, beide Buttons ohne Scrollen sichtbar */
+  @media (max-width: 47.99em) {
+    .hero--large {
+      min-height: calc(100svh - var(--header-h));
+    }
+    .hero--large .hero__content {
+      padding-bottom: clamp(5rem, 16svh, 9rem);
+    }
+    .hero--large .btn-row .btn {
+      width: 100%;
+      max-width: 22rem;
+    }
+  }
   .hero h1 {
     color: var(--c-white);
     max-width: 18ch;
