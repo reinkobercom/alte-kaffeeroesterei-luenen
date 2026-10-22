@@ -81,13 +81,14 @@ export const announcements: Announcement[] = [
   },
   {
     id: 'feiertage-jahreswechsel',
-    visible: false,
+    visible: true,
+    visibleUntil: '2027-01-06',
     position: 'top',
     tone: 'espresso',
-    title: 'Öffnungszeiten zu den Feiertagen & Jahreswechsel',
+    title: 'Öffnungszeiten zu Weihnachten & Silvester',
     paragraphs: [
-      'Liebe Gäste, wir möchten Sie über unsere Öffnungszeiten rund um die Feiertage informieren:',
-      '<b>Wichtiger Hinweis vorab: Unsere generellen Öffnungszeiten gehen ab sofort bis 17:30 Uhr.</b><br><br><b>Unsere Feiertags-Planung:</b><br>Montag, den 22.12. bis Freitag, den 26.12.: Geschlossen<br><b>Samstag, den 27.12. &amp; Sonntag, den 28.12.: Unser beliebtes Wochenend-Frühstücksbuffet von 09:30 – 13:00 Uhr</b><br>Montag, den 29.12. &amp; Dienstag, den 30.12.: Geschlossen<br><b>Mittwoch, den 31.12. (Silvester): Silvester-Frühstücksbuffet von 09:30 – 13:00 Uhr</b><br>Donnerstag, den 01.01. bis einschließlich Dienstag, den 06.01.2026: Geschlossen<br><br><b>Ab Mittwoch, dem 07.01.2026, sind wir wieder wie gewohnt für Sie da.</b>',
+      'Liebe Gäste, hier unsere Öffnungszeiten rund um die Feiertage:',
+      'Mittwoch, 23.12.: 09:00 – 17:30 Uhr<br>Donnerstag, 24.12. (Heiligabend): bis 12:30 Uhr<br>Freitag, 25.12. bis Mittwoch, 30.12.: Geschlossen<br><b>Donnerstag, 31.12. (Silvester): Jahresabschluss-Buffet bis 13:00 Uhr</b><br>Freitag, 01.01. bis einschließlich Dienstag, 05.01.2027: Geschlossen<br><br><b>Ab Mittwoch, 06.01.2027, sind wir wieder für Sie da.</b>',
       'Wir freuen uns auf Ihren Besuch und wünschen frohe Festtage und einen guten Rutsch ins neue Jahr!',
     ],
   },
